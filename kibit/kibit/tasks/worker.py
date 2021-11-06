@@ -23,7 +23,8 @@ class Worker(Process):
         except Exception as e:
             self.result_queue.put(
                 TaskResult(task.task_id, task.name, datetime.now() - start, False))
-            raise e
+            if task.trace:
+                raise e
 
     def run(self):
         try:

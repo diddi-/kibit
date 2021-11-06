@@ -1,6 +1,7 @@
 import os
 from typing import List
 
+import colorama
 from colorama import Cursor, Fore
 
 from kibit.tasks.task import Task
@@ -18,6 +19,7 @@ class Progress:
     def __init__(self):
         self.entries: List[ProgressEntry] = []
         self.cursor_line = 0
+        colorama.init()
 
     def _move_up(self, lines):
         if self.cursor_line - lines < 0:
