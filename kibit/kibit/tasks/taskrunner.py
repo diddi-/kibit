@@ -1,6 +1,6 @@
 import multiprocessing
 
-from kibit.experimental.progress import Progress
+from kibit.tasks.progress import Progress
 from kibit.spec.spec import Spec
 from kibit.tasks.worker import Worker
 
