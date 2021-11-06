@@ -9,6 +9,8 @@ class Ssh(Module):
     arguments = SshArguments
 
     def run(self, args: SshArguments) -> bool:
-        client = paramiko.SSHClient()
-        client.connect(args.host)
-        return True
+        transport = paramiko.Transport(args.host)
+        transport.connect()
+        key = transport.get_remote_server_key()
+        transport.close()
+        return key.get_fingerprint() is not None

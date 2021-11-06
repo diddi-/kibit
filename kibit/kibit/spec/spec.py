@@ -21,6 +21,9 @@ class Spec:
         t_id = 0
         for t in data.get("tasks"):
             task_name = t.pop("name")
+            trace = None
+            if "trace" in t.keys():
+                trace = t.pop("trace")
             if len(t.keys()) > 1:
                 raise ValueError("Only one module can be specified per task")
             if len(t.keys()) == 0:
@@ -28,6 +31,9 @@ class Spec:
             module_name = list(t.keys()).pop()
             module = ModuleLoader.load(module_name)
             arguments = module.arguments(**t[module_name])
-            s.tasks.append(Task(t_id, task_name, module, arguments))
+            task = Task(t_id, task_name, module, arguments)
+            if trace is not None:
+                task.trace = trace
+            s.tasks.append(task)
             t_id += 1
         return s

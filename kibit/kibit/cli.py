@@ -17,3 +17,4 @@ def main(spec: str):
         runner.start()
     except Exception as e:
         print(e)
+        raise e

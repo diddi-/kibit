@@ -12,3 +12,4 @@ class Task:
         self.name = name
         self.module = module
         self.arguments = arguments
+        self.trace = False

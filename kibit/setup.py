@@ -21,7 +21,7 @@ setup(
         "console_scripts": ["kibit=kibit.cli:main"],
         "kibit.modules": [
             "sleep=kibit.modules.sleep.sleep:Sleep",
-            "ping=kibit.modules.ping.ping:Ping"
+            "ping=kibit.modules.ping.ping:Ping",
             "ssh=kibit.modules.ssh.ssh:Ssh"
         ]
     }

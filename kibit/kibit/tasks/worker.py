@@ -20,9 +20,10 @@ class Worker(Process):
             result = task.module().run(task.arguments)
             self.result_queue.put(
                 TaskResult(task.task_id, task.name, datetime.now() - start, result))
-        except Exception:
+        except Exception as e:
             self.result_queue.put(
                 TaskResult(task.task_id, task.name, datetime.now() - start, False))
+            raise e
 
     def run(self):
         try:
