@@ -1,0 +1,6 @@
+/local/
+/kibit/kibit.egg-info/
+/kibit/kibit/experimental/
+.idea/
+__pycache__/
+*.iml
